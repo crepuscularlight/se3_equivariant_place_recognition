@@ -5,7 +5,7 @@
 # number of points for the input clouds
 NUM_POINTS = 4096
 # data path, '/home/cel/data/benchmark_datasets' for oxford and '/home/cel/data/kitti' for kitti
-DATASET_FOLDER = '/home/cel/data/benchmark_datasets'
+DATASET_FOLDER = '/content/drive/MyDrive/place_recognition/dataset'
 
 #####################
 # TRAINING SETTINGS #
@@ -70,10 +70,10 @@ GPU = '0'
 #######################
 ''' GLOBAL '''
 # choose the model to evaluate from 'epn_netvlad' or 'atten_epn_netvlad'
-EVAL_MODEL = 'epn_gem'
+EVAL_MODEL = 'epn_netvlad'
 # the pretrained weights that you want to load into the model
 # RESUME_FILENAME = 'pretrained_model/test.ckpt'
-RESUME_FILENAME = LOG_DIR+EXP_NAME+'/'+MODEL_FILENAME
+RESUME_FILENAME = "/content/drive/MyDrive/place_recognition/codelab/epn_netvlad_model.ckpt"
 # save paths for the evaluation results
 RESULTS_FOLDER = 'results/pr_evaluation_test'
 OUTPUT_FILE = RESULTS_FOLDER+'/results.txt'
@@ -86,8 +86,8 @@ EVAL_NEGATIVES_PER_QUERY = 2
 
 ''' EVALUATION PICKLE FILES '''
 # use the picke files in the following two lines for oxford benchmark evaluation
-EVAL_DATABASE_FILE = '/home/cel/data/benchmark_datasets/oxford_evaluation_database.pickle'
-EVAL_QUERY_FILE = '/home/cel/data/benchmark_datasets/oxford_evaluation_query.pickle'
+# EVAL_DATABASE_FILE = '/home/cel/data/benchmark_datasets/oxford_evaluation_database.pickle'
+# EVAL_QUERY_FILE = '/home/cel/data/benchmark_datasets/oxford_evaluation_query.pickle'
 # use the picke files in the following two lines for U.S. benchmark evaluation
 # EVAL_DATABASE_FILE = '/home/cel/data/benchmark_datasets/university_evaluation_database.pickle'
 # EVAL_QUERY_FILE = '/home/cel/data/benchmark_datasets/university_evaluation_query.pickle'
@@ -99,8 +99,8 @@ EVAL_QUERY_FILE = '/home/cel/data/benchmark_datasets/oxford_evaluation_query.pic
 # EVAL_QUERY_FILE = '/home/cel/data/benchmark_datasets/residential_evaluation_query.pickle'
 
 # KITTI
-# EVAL_DATABASE_FILE = '/home/cel/data/kitti/kitti_00_database_evaluate_new.pickle'
-# EVAL_QUERY_FILE = '/home/cel/data/kitti/kitti_00_queries_evaluate_new.pickle'
+EVAL_DATABASE_FILE = '/content/Data/test/kitti_00_database_evaluate_new.pickle'
+EVAL_QUERY_FILE = '/content/Data/test/kitti_00_queries_evaluate_new.pickle'
 # EVAL_DATABASE_FILE = '/home/cel/data/kitti/kitti_08_database_evaluate_new.pickle'
 # EVAL_QUERY_FILE = '/home/cel/data/kitti/kitti_08_queries_evaluate_new.pickle'
 
