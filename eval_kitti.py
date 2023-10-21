@@ -19,7 +19,7 @@ import matplotlib.pyplot as plt
 import matplotlib
 matplotlib.rcParams.update({'font.size': 13})
 import config as cfg
-
+from scipy.spatial.transform import Rotation as R
 
 def get_sets_dict(filename):
 	#[key_dataset:{key_pointcloud:{'query':file,'northing':value,'easting':value}},key_dataset:{key_pointcloud:{'query':file,'northing':value,'easting':value}}, ...}
@@ -32,6 +32,14 @@ def load_pc_file(filename):
     dataset_folder = cfg.DATASET_FOLDER
     comp_name = os.path.join(dataset_folder,filename)
     pc = np.fromfile(comp_name, dtype=np.float32).reshape(-1,4)[:,:3] # xyz
+
+    euler_angle=np.random.randint(-30,30,size=3)
+    r=R.from_euler("zyx", euler_angle)
+    rotation=r.as_matrix()
+    rotation=rotation.reshape(3,3)
+
+    pc=(rotation@pc.T).T
+
 
     l = 25
     ind = np.argwhere(pc[:, 0] <= l).reshape(-1)
