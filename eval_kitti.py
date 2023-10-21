@@ -118,7 +118,7 @@ def evaluate_model(model, opt):
     QUERY_SETS = get_sets_dict(cfg.EVAL_QUERY_FILE)
 
     if not os.path.exists(cfg.RESULTS_FOLDER):
-        os.mkdir(cfg.RESULTS_FOLDER)
+        os.makedirs(cfg.RESULTS_FOLDER)
 
     recall = np.zeros(25)
     count = 0
